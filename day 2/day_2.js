@@ -32,8 +32,9 @@ previous.addEventListener('click', () => {
 		circles[actual_active].classList.remove("circle__active");
 		actual_active--
 		progress.style.width = (actual_active / (circles.length - 1)) * 100 + '%';
+		if (actual_active == 0 ){
+			previous.classList.add('button-disabled')
+		}
 	}
-	else{
-		previous.classList.add('button-disabled')
-	}
+	
 });
