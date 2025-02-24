@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	box-sizing: content-box;
+	width: 100%;
+	font-family: monospace;
+}
+
+body {
+	background-color: rgba(83, 1, 1, 0.89); 
+	overflow: hidden;
+}
+
+.fondo {
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	z-index: 9;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	filter: blur(100px);
+}
+
+.carga {
+	color: rgba(231,206,210, 1);
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	
+	margin: 0 50%;
+	
+	position: fixed;
+	top: 50vh;
+	z-index: 10;
+
+	font-size: 2em;
+	font-weight: bolder;
+
+
+}
