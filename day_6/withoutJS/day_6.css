@@ -1,0 +1,86 @@
+
+:root{
+	/* CSS HSL */
+	--bistre: hsla(29, 58%, 14%, 1);
+	--dark-goldenrod: hsla(40, 80%, 38%, 1);
+	--plum-web: hsla(316, 49%, 73%, 1);
+	--english-violet: hsla(293, 24%, 33%, 1);
+	--licorice: hsla(285, 47%, 7%, 1);
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: var(--licorice);
+	padding-block-end: 30vh;
+}
+
+.title {
+	width: max-content;
+	height: max-content;
+	margin: 12vh auto 12vh auto;
+	
+	text-align: center;
+	font-size: 400%;
+	color: var(--plum-web);
+	
+}
+
+.elem-animation {
+	display: flex;
+	width: 60vw;
+	height: 15em;
+	border: 5px;
+	border-radius: 2em;
+	margin: 5% auto;
+
+	align-items: center;
+	justify-content: center;
+
+	animation: active-elem 1s ease-out forwards;
+	animation-range: entry 10% exit 100%;
+	view-timeline: --elem-active block;
+	animation-timeline: --elem-active;
+}
+
+.elem-animation:hover{
+	animation-name: active-elem;
+		background-color: var(--bistre);
+		box-shadow: 0 0 40px var(--dark-goldenrod);
+}
+
+.content {
+	display: block;
+	width: max-content;
+	margin-block: 30%;
+	text-align: center;
+
+	font-size: 300%;
+	color: var(--plum-web);
+
+	
+}
+
+@keyframes active-elem {
+	0%{
+		opacity: 0;
+		transform: scale(60%);
+		border: 0px solid var(--plum-web);
+	}
+	50%{
+		opacity: 1;
+		background-color: var(--english-violet);
+		border: 3px solid var(--plum-web);
+		box-shadow: 0px 0px 30px  var(--plum-web);
+		transform: scale(100%);
+	}
+	100%{
+		transform: scale(60%);
+		opacity: 0;
+		border: 0px solid var(--plum-web);
+	}
+}
