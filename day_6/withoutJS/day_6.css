@@ -36,7 +36,7 @@ body {
 	height: 15em;
 	border: 5px;
 	border-radius: 2em;
-	margin: 5% auto;
+	margin: 6% auto;
 
 	align-items: center;
 	justify-content: center;
@@ -45,6 +45,7 @@ body {
 	animation-range: entry 10% exit 100%;
 	view-timeline: --elem-active block;
 	animation-timeline: --elem-active;
+
 }
 
 .elem-animation:hover{
