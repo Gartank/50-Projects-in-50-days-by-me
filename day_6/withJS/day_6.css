@@ -1,0 +1,115 @@
+
+:root{
+	/* CSS HSL */
+	--bistre: hsla(29, 58%, 14%, 1);
+	--dark-goldenrod: hsla(40, 80%, 38%, 1);
+	--plum-web: hsla(316, 49%, 73%, 1);
+	--english-violet: hsla(293, 24%, 33%, 1);
+	--licorice: hsla(285, 47%, 7%, 1);
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: var(--licorice);
+	padding-block-end: 30vh;
+}
+
+.title {
+	width: max-content;
+	height: max-content;
+	margin: 15vh auto 15vh auto;
+	
+	text-align: center;
+	font-size: 400%;
+	color: var(--plum-web);
+	
+}
+
+/* .debug-line{
+	height: 1px;
+	width: 100vw;
+	border: 1px dotted;
+	border-color: green;
+
+	position: fixed;
+	top: 0;
+} */
+
+.elem-animation {
+	display: flex;
+	width: 60vw;
+	height: 25vh;
+	border: 5px;
+	border-radius: 2em;
+	margin: 6% auto;
+	border: 3px solid var(--plum-web);
+	
+	align-items: center;
+	justify-content: center;
+
+	transition-duration: 300ms;
+	scroll-snap-align: center;
+}
+
+.elem-animation__in{
+	opacity: 0.3;
+	transform: scale(60%);
+	border: 1px solid var(--plum-web);
+
+	animation-name: show-off;
+	animation-duration: 300ms;
+	animation-timing-function: ease-in;
+	animation-range: forwards;
+	transition-duration: 300ms;
+}
+.elem-animation__out{
+	opacity: 0.5;
+	transform: scale(60%);
+	border: 1px solid var(--plum-web);
+	
+	animation-name: show-off;
+	animation-duration: 300ms;
+	animation-timing-function: ease-out;
+	animation-range: backwards;
+	transition-duration: 300ms;
+}
+
+.elem-animation:hover{
+	border-color: var(--dark-goldenrod);
+	background-color: var(--bistre);
+	box-shadow: 0 0 40px var(--dark-goldenrod);
+	
+	& .content {
+		color: var(--dark-goldenrod);
+	}
+}
+
+.elem-animation__in:hover, .elem-animation__out:hover{	
+	
+}
+
+.content {
+	display: block;
+	width: max-content;
+	margin-block: 30%;
+	text-align: center;
+
+	font-size: 300%;
+	color: var(--plum-web);
+}
+
+@keyframes show-off{
+	0%{
+		opacity: 1;
+		transform: scale(100%);
+	}
+	100%{
+		opacity: 0;
+		transform: scale(60%);
+	} 
+}
