@@ -50,8 +50,8 @@ body {
 
 .elem-animation:hover{
 	animation-name: active-elem;
-		background-color: var(--bistre);
-		box-shadow: 0 0 40px var(--dark-goldenrod);
+	background-color: var(--bistre);
+	box-shadow: 0 0 40px var(--dark-goldenrod);
 }
 
 .content {
