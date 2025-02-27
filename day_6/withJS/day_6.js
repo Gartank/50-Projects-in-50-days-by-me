@@ -1,7 +1,7 @@
 const boxes = document.querySelectorAll(".elem-animation");
 
-const windowStartTrigger = (window.innerHeight / 2) -  window.innerHeight*0.13;
-const windowEndTrigger = (window.innerHeight / 2) + window.innerHeight*0.17;
+const windowStartTrigger = (window.innerHeight / 2) -  window.innerHeight*0.15;
+const windowEndTrigger = (window.innerHeight / 2) + window.innerHeight*0.20;
 const debugLineStart = document.querySelector("#start");
 const debugLineEnd = document.querySelector("#end");
 const debugButton = document.querySelector('.checkbox-slider--ball')
