@@ -37,10 +37,15 @@ body{
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+
+    background-image: url('/assets/1440-900-1296621.png');
+    background-size: cover;
+    -webkit-backdrop-filter: grayscale(0.8);
+    backdrop-filter: grayscale(0.8);
 }
 
 .section{
-    min-width: 25%;
+    min-width: 20%;
     height: 100%;
     
     display: flex;
@@ -48,21 +53,33 @@ body{
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
+    border: solid 0px transparent;
 
-    transition: flex-grow 700ms ease-in-out;
+    transition: 700ms ease-in-out;
+    -webkit-backdrop-filter: grayscale(0.8) brightness(0.5) ;
+    backdrop-filter: grayscale(0.8) brightness(0.5) ;
 }
 
-#section1{
-    background-color: var(--white);
+#section1:hover{
+    border-right: solid 5px var(--amd-main-color)
 }
-
-#section2 {
-    background-color: var(--black-olive);
+#section2:hover{
+    border-left: solid 5px var(--nvidia-main-color)
 }
 
 #section1:hover,
 #section2:hover{
     flex-grow: 3;
+}
+
+#section1:hover{
+    -webkit-backdrop-filter: grayscale(0.8) brightness(0.6) hue-rotate(5deg) contrast(150%) saturate(5);
+    backdrop-filter: grayscale(0.8) brightness(0.6) hue-rotate(5deg) contrast(150%) saturate(5);
+}
+
+#section2:hover{
+    -webkit-backdrop-filter: grayscale(0.8) brightness(0.6) hue-rotate(35deg) contrast(150%) saturate(5);
+    backdrop-filter: grayscale(0.8) brightness(0.6) hue-rotate(35deg) contrast(150%) saturate(5);
 }
 
 #section1:hover ~ #section2,
@@ -84,7 +101,17 @@ body{
 
 .content-title{
     font-size: 3em;
+    color: var(--floral-white);
+    transition: 700ms ease-in-out; 
 }
+
+#section1:hover > .section-content > .content-title{
+    color: var(--amd-main-color);
+}
+#section2:hover > .section-content > .content-title{
+    color: var(--nvidia-main-color);
+}
+
 
 .content-button{
     width: max-content;
@@ -92,21 +119,42 @@ body{
     border: solid 3px;
 
     background-color: var(--eerie-black);
+    border-color: var(--floral-white);
+    color: var(--floral-white);
+    transition: 100ms ease-in-out;
 }
 
-#amd-button{
+.section:hover > .section-content > .amd-button{
     color: var(--amd-main-color);
     border-color: var(--amd-main-color);
 }
 
-#nvidia-button{
+.section:hover > .section-content >  .nvidia-button{
     color: var(--nvidia-main-color);
     border-color: var(--nvidia-main-color);
 }
 
-.content-logo{
+
+#amd-button:hover{
+    background-color: var(--amd-main-color)
+}
+
+#nvidia-button:hover{
+    background-color: var(--nvidia-main-color);
+}
+
+#amd-button:hover,
+#nvidia-button:hover{
+    color: var(--floral-white);
+    border-color: var(--floral-white);
+}
+
+
+.section-logo{
     max-width: 100px;
     margin: 5vw;
+    transition: 700ms ease-in-out;
+    filter: grayscale(0);
 }
 
 .nvidia-logo{
