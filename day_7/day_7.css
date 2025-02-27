@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700');
+
+:root{
+    --amd-main-color: rgb(237, 28, 36);
+    --nvidia-main-color: rgb(118, 185, 0);
+    --floral-white: #fffcf2ff;
+    --black-olive: #403d39ff;
+    --eerie-black: #252422ff;
+}
+
+* {
+    padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+    font-family: "Rajdhani", serif;
+    font-weight: 500;
+    font-style: normal;
+	font-size: 1.5vw;
+}
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section{
+    min-width: 25%;
+    height: 100%;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+
+    transition: flex-grow 700ms ease-in-out;
+}
+
+#section1{
+    background-color: var(--white);
+}
+
+#section2 {
+    background-color: var(--black-olive);
+}
+
+#section1:hover,
+#section2:hover{
+    flex-grow: 3;
+}
+
+#section1:hover ~ #section2,
+#section2:hover ~ #section1 {
+    flex-grow: 0.5;
+}
+
+.section-content{
+    width: 60%;
+    height: max-content;
+    margin-block-start: 35vh;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10vh;
+}
+
+.content-title{
+    font-size: 3em;
+}
+
+.content-button{
+    width: max-content;
+    padding: 2vh 4vw;
+    border: solid 3px;
+
+    background-color: var(--eerie-black);
+}
+
+#amd-button{
+    color: var(--amd-main-color);
+    border-color: var(--amd-main-color);
+}
+
+#nvidia-button{
+    color: var(--nvidia-main-color);
+    border-color: var(--nvidia-main-color);
+}
+
+.content-logo{
+    max-width: 100px;
+    margin: 5vw;
+}
+
+.nvidia-logo{
+    height: 5vw;
+    max-width: 150px;
+    align-self: start;
+}  
+
+.amd-logo{
+    width: 5vw;
+    align-self: end;
+}
