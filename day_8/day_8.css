@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root{
+    --xanthous: #f0b515ff;
+    --seal-brown: #692600;    
+    --smoky-black: #29271B;
+    --dim-gray: #696773ff;
+    --sunglow: #ffcc3f;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Share Tech Mono', serif;  
+
+}
+
+html{
+    width: 100vw;
+    height: 100vh;
+
+    font-size: 1.7vh;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(360deg, var(--smoky-black) , 60%, var(--dim-gray));
+}
+
+.section-form{
+    min-width: 420px;
+    max-width: 570px;
+    aspect-ratio: 1/1.15;
+    padding: 35px;
+    border-radius: 3px;
+    
+    background-color: #29271bbb;
+    color: var(--sunglow);
+}
+
+.form-tittle{
+    width: max-content;
+    height: max-content;
+    margin-inline: auto;
+    
+    font-size: 2.3em;
+
+}
+
+.form{
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+}
+
+.input-fields{
+    width: 100%;
+    height: max-content;
+    border: none;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    gap: 15px;
+}
+
+.form-label{
+    width: 100%;
+    height: max-content;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+
+    color: var(--sunglow)
+}
+
+.checkbox-label{
+    width: fit-content;
+    height: max-content;
+    margin-block: 20px;
+    
+    display: flex;
+    align-self: start;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-text{
+    width: max-content;
+    height: fit-content;
+    margin-inline-start: 10px;
+}
+
+.input-text{
+    overflow: visible;
+    margin-inline-start: 10px;
+    position: relative;
+    top: 0px;
+}
+
+.letter {
+    position: relative;
+    top: 42px;
+
+    cursor: default;
+    --webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    transition: text-shadow 500ms ease-in-out 1s
+                ,color 500ms ease-in-out 1s
+                ,top 200ms ease-in-out;
+}
+.letter:hover{
+    color: var(--sunglow);
+    text-shadow: 0 0 5px var(--sunglow);
+    transition: text-shadow 50ms ease-in-out 
+                ,color 50ms ease-in-out;
+}
+
+.letter--up{
+    top: 0;
+    transition: top 100ms ease-in-out;
+}
+
+.form-input{
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    border-block-end: 3px solid var(--xanthous);
+    margin-block-start: 10px;
+    
+    background-color: transparent;
+    color: var(--sunglow);
+    
+    font-size: 1.2em;
+
+    transition-property: background-color, color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+}
+
+.form-input:focus, .form-input:focus:hover{
+    outline: none;
+    color: var(--smoky-black);
+    background-color: var(--xanthous);
+    border-block-end: 3px solid var(--sunglow);
+    transition-delay: 300ms;
+}
+
+.form-input:hover{
+    background-color: #b1420118;
+    border-block-end: 3px solid var(--sunglow);
+    transition-duration: 300ms;
+}
+
+
+#checkbox-remember_me{
+    width: 1.15em;
+    aspect-ratio: 1;
+    border: 2px solid currentColor;
+    border-radius: 0.15em;
+    margin: 0 0 0 10px;
+    
+    
+    font: inherit;
+    color: var(--sunglow);
+    background-color: transparent;
+
+    transition: background-color 100ms ease-in-out;
+}
+
+#checkbox-remember_me:checked{
+    background-color: var(--xanthous);
+}
+
+.form-login{
+    width: 70%;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    border: 3px solid var(--xanthous);
+    margin-block: 20px;
+
+    font-size: 1.2em;
+
+    align-self: center;
+
+    background-color: transparent;
+    color: var(--xanthous);
+
+    transition-property: background-color, color, border-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+}
+
+.form-login:hover{
+    color: var(--seal-brown);
+    background-color: var(--xanthous);
+    border-color: none;
+}
+
+.form-register{
+    font-size: 0.7em;
+    color: var(--xanthous);
+}
+
+.register-link{
+    color: var(--xanthous);
+
+    &:visited{
+        color: var(--dim-gray);
+    }
+}
