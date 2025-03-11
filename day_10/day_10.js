@@ -71,7 +71,8 @@ function generateJoke(){
         prevJokeButton.classList.remove('btn--off');
     }
     
-    actualJoke += (actualJoke != 0);
+    actualJoke = 0;
+    nextJokeButton.classList.add('btn--off');
 }
 
 generateJoke();
