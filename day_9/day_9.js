@@ -6,7 +6,7 @@ const soundsUrl = {
     goofyHornCar: {url:"sounds/car-horn-goofy-warning-made-with-Voicemod.mp3", start: 0},
     goofyRunning: {url:"sounds/Goofy-ahhhhh-running-djlunatique.com_.mp3", start: 0},
     bruh: {url:"sounds/IUsN7ld3-Bruh-Sound-Effect.mp3", start: 0},
-    bingChiling: {url:"sounds/John-Cena-Bing-Chilling.mp3", start: 0},
+    Laughs: {url:"sounds/risas-enlatadas-tv.mp3", start: 0},
     metalPipesFalling: {url:"sounds/Metal20Pipes20Falling20Sound.mp3", start: 0},
     OOOMAGA: {url:"sounds/Ohhh-My-God-Vine-Sound-Effect.mp3", start: 3.3},
     PlanktonAughhhh: {url:"sounds/plankton-aughhhh-meme.mp3", start: 0.5},
