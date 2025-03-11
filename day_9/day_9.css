@@ -1,0 +1,83 @@
+:root{
+    --mint-green: #daffedff;
+    --cinnabar: #f4442eff;   
+    --oxford-blue: #070529;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+
+    font-size: 100%;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    
+    background-color: var(--oxford-blue);
+    color: var(--mint-green);
+}
+
+button{
+    outline: none;
+    border: none
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    width: 70%;
+    height: 60%;
+    min-height: fit-content;
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sound-button {
+    width: 17%;
+    min-width: 150px;
+    aspect-ratio: 1/0.6;
+    border: solid 4px;
+    border-radius: 30px;
+
+    font-size: 1.4em;
+
+    background-color: transparent; 
+    color: var(--mint-green);
+
+    cursor: pointer;
+
+    transition-property: background, color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+}
+
+.sound-button:active{
+    background-color: var(--mint-green);
+    color: var(--oxford-blue);
+
+    transition-duration:  50ms;
+    transition-timing-function: ease-in-out;
+}
+
+.sound-button:hover{
+    color: var(--cinnabar)
+}
