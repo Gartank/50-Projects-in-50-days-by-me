@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni-Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 
-:root {
-
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -54,6 +50,11 @@ button {
     font-size: 3em ;
     font-weight: 400;
     text-align: center;
+}
+
+#dad_joke{
+    width: fit-content;
+    height: fit-content;
 }
 
 .dad_jokes-buttons-container{
@@ -142,7 +143,6 @@ button {
     
     font-size: 0.5em;
 }
-
 
 .btn--off{
     visibility: hidden;

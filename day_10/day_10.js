@@ -2,6 +2,7 @@
 
 const dadJokeContainer = document.querySelector('.dad_joke-container');
 const changeJokeButton = document.querySelector(".btn-change");
+const dadJokeElem = document.querySelector('#dad_joke');
 const prevJokeButton = document.querySelector(".btn-prev");
 const nextJokeButton = document.querySelector(".btn-next");
 
@@ -9,34 +10,40 @@ const jokesHistory = [];
 let actualJoke = 0;
 const HISTORY_LIMIT = 50;
 
+function changeJoke( joke ){
+    dadJokeElem.textContent = joke;
+}
+
 function prevJoke(){
     
-    const prev = jokesHistory[actualJoke+1];
-    
-    dadJokeContainer.removeChild(jokesHistory[actualJoke]);
-    dadJokeContainer.appendChild(prev)
-    
-    if ( actualJoke+1 == jokesHistory.length-1){
-        prevJokeButton.classList.add('btn--off');
+    if ( actualJoke+1 <= jokesHistory.length-1){
+        const prev = jokesHistory[++actualJoke];
+        changeJoke(prev);
+        
+        if( actualJoke == jokesHistory.length-1){
+            prevJokeButton.classList.add('btn--off');
+        }
+        if (nextJokeButton.classList.contains('btn--off')){
+            nextJokeButton.classList.remove('btn--off');
+        }
     }
-    if (nextJokeButton.classList.contains('btn--off')){
-        nextJokeButton.classList.remove('btn--off');
-    }
-    console.log(jokeIndex)
+    console.log(actualJoke)
 }
-function nextJoke(){
 
-    const next = jokesHistory[actualJoke-1];
+function nextJoke(){
     
-    dadJokeContainer.removeChild(jokesHistory[actualJoke]);
-    dadJokeContainer.appendChild(next)
-    
-    if( actualJoke-1 == 0){
-        prevJokeButton.classList.add('btn--off');
+    if( actualJoke-1 >= 0){
+        const next = jokesHistory[--actualJoke];
+        changeJoke(next);
+        
+        if (actualJoke == 0) {
+            nextJokeButton.classList.add('btn--off');
+        }
+        if (prevJokeButton.classList.contains('btn--off')){
+            prevJokeButton.classList.remove('btn--off');
+        }
     }
-    if (prevJokeButton.classList.contains('btn--off')){
-        prevJokeButton.classList.remove('btn--off');
-    }
+    console.log(actualJoke)
 }
 
 function generateJoke(){
@@ -49,30 +56,25 @@ function generateJoke(){
     
     const dadJokesReq = fetch( 'https://icanhazdadjoke.com/', config);
     
-    if(dadJokeContainer.hasChildNodes()){
-        dadJokeContainer.innerHTML = '';
-    }
-    
     dadJokesReq
         .then( (response) => { return response.json() })
         .then(
             (dataJSON) => {
-                    const dadJokeElem = document.createElement('article');
-                    dadJokeElem.id = 'dadJoke';
-                    dadJokeElem.className = 'dad_joke';
-                    dadJokeElem.textContent = dataJSON.joke;
-                    dadJokeContainer.appendChild(dadJokeElem);
+                    const dadJoke = dataJSON.joke;
+                    changeJoke(dadJoke);
+                    jokesHistory.unshift(dadJoke);
 
-                    jokesHistory.unshift(dadJokeElem);
+                    actualJoke = 0;
+                    nextJokeButton.classList.add('btn--off');
                 }
-        );
-    
-    if(prevJokeButton.classList.contains('btn--off')){
+            )
+            .catch( (error) => {
+                console.error("Theres's an error in the request: ", error);
+            });
+            
+    if(prevJokeButton.classList.contains('btn--off') && jokesHistory.length > 1){
         prevJokeButton.classList.remove('btn--off');
     }
-    
-    actualJoke = 0;
-    nextJokeButton.classList.add('btn--off');
 }
 
 generateJoke();
