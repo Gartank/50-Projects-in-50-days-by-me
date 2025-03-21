@@ -52,6 +52,7 @@ function activateChoice(choiceObj){
     }
 
     if(choicesObjArr.length > 1){
+
         pickChoiceBtn.disabled = false;
         pickChoiceBtn.classList.remove('btn--disabled');
     }
@@ -105,6 +106,7 @@ function optionEvents(choiceObj){
         else if( choiceOptions.get('option-confirm').classList.contains('option-confirm') ){
 
             activateChoice(choiceObj)
+            addChoiceBtn.focus()
         }
     } )
     
@@ -172,6 +174,7 @@ addChoiceBtn.addEventListener("click", () => {
     choiceEvents(choiceObj);
     activateChoice(choiceObj);
     editChoice(choiceObj);
+
 });
 
 
@@ -197,6 +200,7 @@ pickChoiceBtn.addEventListener("click", () => {
                 randomChoice.classList.remove('choice--picked');
             }, 2000);
             pickMode = false;
+            randomChoice.focus();
             addChoiceBtn.classList.remove('btn--disabled');
             clearInterval(chooseInterval);
         }
@@ -209,6 +213,4 @@ pickChoiceBtn.addEventListener("click", () => {
         
         repeats++;
     }, 2500/choicesObjArr.length)
-    
-    
 });
