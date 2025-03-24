@@ -1,0 +1,182 @@
+:root {
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    min-height: 100vh;
+
+    font-size: 2vh;
+    line-height: 1.3;
+    font-family: sans-serif;    
+    overflow-y: auto;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    max-height: max-content;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 0;
+    height: 0;
+    outline-style: none;
+    border: none;
+    
+    cursor: pointer;
+
+    background-color: transparent;
+}
+
+.navbar-container {
+    width: max-content;
+    height: max-content;
+
+    overflow: visible;
+
+    position: absolute;
+    top : 25%;
+    left: 35%;
+}
+
+.navbar {
+    min-width: 0;
+    max-width: max-content;
+    min-height: 30%;
+    max-height: 50%;
+    padding: 0.5em 2em;
+    padding-inline-start: 3em; 
+    padding-inline-end: 4em; 
+    border-end-end-radius: 2em;
+    border-start-end-radius: 2em;
+    overflow: visible;
+    
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    position: relative;
+    z-index: 10;
+
+    background-color: gray;
+
+    transition: ease-in-out 500ms;
+    transform-origin: left;
+}
+
+.navbar--vertical{
+    transform: rotate(90deg);
+}
+
+.navbar--horizontal{
+    transform: rotate(0deg);
+}
+
+.nav-button{
+    width: fit-content;
+    height: fit-content;
+    max-width: max-content;
+    aspect-ratio: 1;
+    padding: 2em;
+    border-radius: 50%;
+    
+    position: absolute;
+    top: -1em;
+    left: -3em;
+    
+    z-index: 20;
+
+    background-color: black;
+    color: white;
+}
+
+.navbar--wrapped{
+    transform: scaleX(0.01)
+}
+
+.nav-elem_container{
+    width: 100%;
+    height: max-content;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 1.2em;
+}
+
+.nav-elem{
+    width: max-content;
+    max-width: 35%;
+    height: max-content;
+    padding: 0.3em 0.5em;
+
+    list-style: none;
+
+    display: flex;
+    align-items: end;
+    gap: 0.2em;
+
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.nav-rotate{
+    width: max-content;
+    height: max-content;
+    padding: 0.5em;
+    border-radius: 1em;
+
+    position: absolute;
+    right: 1em;
+
+    transform: rotateX(180deg) rotateZ(90deg) rotateY(-180deg);
+
+    & > .icon--vertical{
+        transform: rotateY(180deg);
+    }
+
+}
+
+.icon {
+    display: block !important;
+    width: 1em;
+    height: 1em;
+    margin-block-start: auto;
+}
+
+.icon--horizontal{
+    display: none !important;
+    transform: rotateZ(0deg);
+}
+.icon--vertical{
+    display: block !important;
+    transform: rotateZ(-90deg);
+}
+
+.text--horizontal{
+    display: block;
+    transform: rotateZ(0deg);
+}
+.text--vertical{
+    display: none;
+    transform: rotateZ(-90deg);
+}
