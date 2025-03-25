@@ -1,5 +1,8 @@
 :root {
-
+    --main : #FBFF00;
+    --accent: #FF9B99;
+    --secondary: #7BFF00;
+    --black: #0a0a00;
 }
 
 * {
@@ -9,6 +12,7 @@
     outline: none;
     overflow: hidden;
     box-sizing: border-box;
+    transition: ease-in-out 300ms;
 }
 
 html {
@@ -30,6 +34,15 @@ body {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+
+    background-color: var(--main);
+}
+
+.body--vertical{
+    background-color: var(--secondary);
+}
+.body--horizontal{
+    background-color: var(--main);
 }
 
 button {
@@ -61,7 +74,8 @@ button {
     max-height: 50%;
     padding: 0.5em 2em;
     padding-inline-start: 3em; 
-    padding-inline-end: 4em; 
+    padding-inline-end: 4em;
+    border: solid var(--black) 2px;
     border-end-end-radius: 2em;
     border-start-end-radius: 2em;
     overflow: visible;
@@ -70,22 +84,35 @@ button {
     justify-content: space-between;
     align-items: center;
     gap: 1em;
-
+    
     position: relative;
     z-index: 10;
-
-    background-color: gray;
-
-    transition: ease-in-out 500ms;
+    
     transform-origin: left;
+
+    box-shadow: 0 0 5px 2px #0a0a0066;
 }
 
 .navbar--vertical{
     transform: rotate(90deg);
+    background-color: var(--secondary);
 }
 
 .navbar--horizontal{
     transform: rotate(0deg);
+    background-color: var(--main);
+    
+    & + .nav-button {
+        color: var(--main)
+    }
+}
+
+.navbar--vertical.navbar--wrapped{
+    transform: rotate(90deg) scaleX(0.01)
+}
+
+.navbar--horizontal.navbar--wrapped{
+    transform: scaleX(0.01)
 }
 
 .nav-button{
@@ -94,6 +121,7 @@ button {
     max-width: max-content;
     aspect-ratio: 1;
     padding: 2em;
+    border: solid var(--black) 2px;
     border-radius: 50%;
     
     position: absolute;
@@ -101,13 +129,30 @@ button {
     left: -3em;
     
     z-index: 20;
-
-    background-color: black;
-    color: white;
+    
+    color: var(--secondary);
+    background-color: var(--black);
+    box-shadow: 0 0 5px 2px #0a0a0066;
 }
 
-.navbar--wrapped{
-    transform: scaleX(0.01)
+.button--vertical{
+    color: var(--secondary);
+    &:hover{
+        color: var(--black);
+        background-color: var(--secondary);
+    }
+}
+
+.button--horizontal{
+    color: var(--main);
+    &:hover{
+        color: var(--black);
+        background-color: var(--main);
+    }
+}
+
+.wrapped:hover {
+    background-color: var(--accent);
 }
 
 .nav-elem_container{
@@ -125,6 +170,7 @@ button {
     max-width: 35%;
     height: max-content;
     padding: 0.3em 0.5em;
+    border-radius: 3px;
 
     list-style: none;
 
@@ -137,9 +183,22 @@ button {
     text-decoration: none;
 
     cursor: pointer;
+
+    transition-duration: 100ms;
 }
 
-.nav-rotate{
+.elem--vertical:hover{  
+    color: var(--secondary);
+}
+.elem--horizontal:hover{  
+    color: var(--main);
+}
+
+:is(.elem--vertical, .elem--horizontal):hover{
+    background-color: var(--black);
+}
+
+.btn-rotate{
     width: max-content;
     height: max-content;
     padding: 0.5em;
@@ -153,7 +212,11 @@ button {
     & > .icon--vertical{
         transform: rotateY(180deg);
     }
+}
 
+:is( .nav-button, .nav-elem ){
+    transition-property: color, background-color;
+    transition-duration: 100ms;
 }
 
 .icon {

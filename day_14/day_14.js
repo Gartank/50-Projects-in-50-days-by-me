@@ -1,5 +1,6 @@
 'use strict'
 
+const body = document.querySelector('body');
 
 class menu {
     constructor(nav = document.querySelector('.navbar')){
@@ -7,7 +8,7 @@ class menu {
         this.nav = nav;
         this.btn = document.querySelector('.nav-button')
         this.elems = nav.querySelectorAll('.nav-elem');
-        this.rotateBtn = nav.querySelector('.nav-rotate')
+        this.rotateBtn = nav.querySelector('.btn-rotate')
         this.orientation = 'vertical';
     }
     
@@ -16,7 +17,13 @@ class menu {
         this.orientation = 'horizontal';
         this.nav.classList.add('navbar--horizontal');
         this.nav.classList.remove('navbar--vertical');
+        this.btn.classList.add('button--horizontal');
+        this.btn.classList.remove('button--vertical');
+        
         this.elems.forEach( (elem) => {
+            elem.classList.add('elem--horizontal');
+            elem.classList.remove('elem--vertical');
+            
             const elemIcon = elem.querySelector('.icon');
             const elemText = elem.querySelector('.text');
             
@@ -26,13 +33,24 @@ class menu {
             elemText.classList.remove('text--vertical')
             elemText.classList.add('text--horizontal')
         });
+        
+        body.classList.remove("body--vertical")
+        body.classList.add("body--horizontal")
+        
+        this.orientation = 'horizontal';
     }
     
     verticalMenu() {
         
         this.nav.classList.remove('navbar--horizontal');
         this.nav.classList.add('navbar--vertical');
+        this.btn.classList.add('button--vertical');
+        this.btn.classList.remove('button--horizontal');
+        
         this.elems.forEach( (elem) => {
+            elem.classList.add('elem--vertical');
+            elem.classList.remove('elem--horizontal');
+
             const elemIcon = elem.querySelector('.icon');
             const elemText = elem.querySelector('.text');
             
@@ -41,10 +59,12 @@ class menu {
             
             elemText.classList.remove('text--horizontal')
             elemText.classList.add('text--vertical')
-
+            
             elemIcon.title = elemText.innerText;
         });
 
+        body.classList.add("body--vertical")
+        body.classList.remove("body--horizontal")
         
         this.orientation = 'vertical';    
     }
@@ -59,6 +79,7 @@ class menu {
         });
 
         this.btn.addEventListener('click', () => {
+            this.btn.classList.toggle('wrapped');
             this.nav.classList.toggle('navbar--wrapped');
         });
     }
