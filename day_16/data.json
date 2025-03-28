@@ -1,0 +1,22 @@
+{
+  "socialMediaAccounts": [
+    {
+      "platformName": "Facebook",
+      "username": "example_user",
+      "followerCount": 12500,
+      "logo": "/assets/facebook-logo.svg"
+    },
+    {
+      "platformName": "Instagram",
+      "username": "example_user",
+      "followerCount": 18700,
+      "logo": "/assets/instagram-logo.svg"
+    },
+    {
+      "platformName": "X",
+      "username": "example_user",
+      "followerCount": 9200,
+      "logo": "/assets/twitter-x-logo.svg"
+    }
+  ]
+}
