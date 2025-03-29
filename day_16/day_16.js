@@ -28,13 +28,28 @@ class Counter {
         countersContainer.appendChild(this.elem);
     }
 
+    startCounter(actualValue = 0){
+        const counter = this.elem.querySelector('.counter-number');
+        if( actualValue < this.followers ){
+            actualValue += Math.ceil(this.followers / 500);
+            counter.innerText = actualValue;
+            setTimeout(() => {
+                this.startCounter(actualValue)
+            }, 1);
+        }
+        else{
+            counter.innerText = this.followers;
+            return;
+        }
+    }
+
     static initElem( platform, userName, counterElem , followers, logo ){
         const elem = document.createElement('div');
-        elem.classList.add('counter', `counter-${platform}`)
+        elem.classList.add('counter', `counter-${platform.toLowerCase()}`)
         
         const logoElem = document.createElement('span');
-        logoElem.classList.add('counter-logo', `logo-${platform}`);
-        logoElem.style.backgroundImage = `url${logo})`;
+        logoElem.classList.add('counter-logo', `logo-${platform.toLowerCase()}`);
+        logoElem.style.backgroundImage = `url(${logo})`;
 
         const title = document.createElement('h2');
         title.classList.add('counter-user');
@@ -42,7 +57,7 @@ class Counter {
 
         const number = document.createElement('div');
         number.classList.add('counter-number');
-        number.innerText = followers;
+        number.innerText = 0;
 
         elem.appendChild(logoElem);
         elem.appendChild(title);
@@ -66,6 +81,10 @@ async function getData(dir = dataDir){
         counterArray.push(counterAux);
         counterAux.deployElem();
     }
+
+    counterArray.forEach(counter => {
+        counter.startCounter();
+    });
 }
 
 getData()

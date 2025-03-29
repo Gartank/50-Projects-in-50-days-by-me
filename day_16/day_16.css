@@ -17,6 +17,10 @@ html {
     min-height: 100vh;
     max-height: fit-content;
     overflow-y: auto;
+
+    font-size: 1vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
 }
 
 body {
@@ -30,7 +34,7 @@ main {
     width: 80%;
     min-height: 100vh;
     max-height: fit-content;
-    padding: 2em, 3em;
+    padding: 2em 3em;
     margin: auto; 
 
     display: flex;
@@ -48,5 +52,35 @@ section.counters{
 
 }
 
+.counter {
+    width: 20%;
+    max-width: max-content;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
 
 
+.counter-logo {
+    width: 8em;
+    aspect-ratio: 1/1;
+    border-radius: 8em;
+
+    filter: invert();
+}
+
+.counter-user {
+    font-size: 2.3em;
+
+    text-wrap: pretty;
+    text-align: center;
+}
+
+.counter-number {
+    font-size: 7em;
+    transition: ease-in 100ms
+}
