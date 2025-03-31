@@ -1,0 +1,77 @@
+:root {
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    font-size: 3vw;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    width: 100vw;
+    min-height: 100vh;
+    max-height: max-content;
+
+    overflow-y: auto;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    max-height: max-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drink_water {
+    width: 70%;
+    height: 90vh;
+    
+    & > *{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.drink_water-consumed{
+    height: 60%;
+
+}
+
+.glass {
+    --path: polygon( 0% 0%, 100% 0%, 87% 100%, 13% 100%);
+    
+    height: 90%;
+    aspect-ratio: 2/3;
+    
+    clip-path: var(--path);
+    background-color: cornflowerblue;
+}
+
+.glass::after {
+
+}
+
+.drink_water-fill_options{
+    height: 40%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.glass_portion {
+    height: 55%;
+}
+
+
