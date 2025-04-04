@@ -9,17 +9,35 @@
 <body>
     <main class="drink_water">
         <section class="drink_water-consumed">
-            <div class="consumed-glass glass">
+            <div class="consumed-glass glass glassmorphism">
                 <span class="glass-quantity">
-                    0<span class="glass-unit">ml</span>
+                    <span class="quantity-num">0</span>
+                    <span class="water-unit">ml</span>
                 </span>
+                <div class="glass-water"></div>
+            </div>
+            <div class="glass-counter">
+                <span class="counter-X">X</span><span class="counter-num">0</span>
+                <span class="max-water">0</span><span class="water-unit">ml</span>
             </div>
         </section>
         <section class="drink_water-fill_options">
-            <div class="glass_portion drink_water-250ml glass"></div>
-            <div class="glass_portion drink_water-500ml glass"></div>
-            <div class="glass_portion drink_water-1l glass"></div>
-            <div class="glass_portion drink_water-2l glass"></div>
+            <div class="glass_portion drink_water-250ml glass glassmorphism">
+                <span class="option-quantity">250ml</span>
+                <div class="glass-water"></div>
+            </div>
+            <div class="glass_portion drink_water-500ml glass glassmorphism">
+                <span class="option-quantity">500ml</span>
+                <div class="glass-water"></div>
+            </div>
+            <div class="glass_portion drink_water-1l glass glassmorphism">
+                <span class="option-quantity">1000ml</span>
+                <div class="glass-water"></div>
+            </div>
+            <div class="glass_portion drink_water-2l glass glassmorphism">
+                <span class="option-quantity">2000ml</span>
+                <div class="glass-water"></div>
+            </div>
         </section>
     </main>
     <script src="day_16.js"></script>

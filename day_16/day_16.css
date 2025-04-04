@@ -1,5 +1,6 @@
 :root {
-
+    --path: polygon( 0% 0%, 100% 0%, 87% 100%, 13% 100%);
+    --path-water: polygon( 15% 0%, 85% 0%, 85% 100%, 15% 100%)
 }
 
 * {
@@ -8,7 +9,7 @@
     box-sizing: border-box;
     overflow: hidden;
     
-    font-size: 3vw;
+    font-size: 2vw;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -44,21 +45,85 @@ body {
 
 .drink_water-consumed{
     height: 60%;
+    padding: 2.5%
+}
 
+.glassmorphism{
+    -webkit-backdrop-filter: blur(5.5px);
+    backdrop-filter: blur(5.5px);
+    background: rgba(190, 251, 255, 0.11);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .glass {
-    --path: polygon( 0% 0%, 100% 0%, 87% 100%, 13% 100%);
     
-    height: 90%;
+    height: 100%;
     aspect-ratio: 2/3;
+    padding-block-end: 5%;
+    
+    
+    position: relative;
     
     clip-path: var(--path);
-    background-color: cornflowerblue;
 }
 
-.glass::after {
+.glass::after{
+    content: '';
 
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+
+    clip-path: var(--path);
+    -webkit-backdrop-filter: blur(5.5px);
+    backdrop-filter: blur(5.5px);
+    background: rgba(190, 251, 255, 0.11);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-water {
+    content: '';
+    height: 0%;
+    width: 85%;
+    
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+
+    clip-path: var(--path-water);
+    background-color: cornflowerblue;
+
+    transition-duration: 300ms;
+    transition-property: height, clip-path;
+    transition-timing-function: ease-out;
+}
+
+.glass-quantity{
+    
+
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    z-index: 30;
+    transform: translateX(-50%);
+
+    & > *{
+        font-size: 2em;
+    }
+
+    transition-duration: 300ms;
+    transition-property: bottom;
+}
+
+
+.glass-counter{
+    align-self: end;
 }
 
 .drink_water-fill_options{
