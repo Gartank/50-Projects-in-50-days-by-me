@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Michroma&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Unica+One&display=swap');
+
+:root {
+    --neon-chartreuse: #eeff00ff;
+    --chocolate: #d96c06ff;
+    --pitch-black: #0f0a0aff;
+    --parchment: #f5efedff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,16 +21,16 @@ html {
     max-height: fit-content;
     overflow-y: auto;
 
-    font-size: 1vh;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
+    font-size: 8px;
+    font-family: 'Michroma', 'Audiowide', 'Unica One', 'Quantico', sans-serif;
+    
 }
 
 body {
     width: 100%;
     min-height: 100%;
     max-height: fit-content;
-    background-color: rgb(90, 23, 23);
+    background-color: var(--neon-chartreuse);
 }
 
 main {
@@ -51,27 +60,52 @@ section.counters{
     max-width: max-content;
     height: fit-content;
 
+    color: var(--pitch-black);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
+.counter-title{
+    width: 60%;
+    height: 3em;
+    padding-inline-start: 1.5em;
+
+    font-family: 'Quantico';
+    font-size: 1em;
+
+    display: flex;
+    gap: 0.2em;
+    justify-content: start;
+    align-self: flex-start;
+}
 
 .counter-logo {
-    width: 8em;
+    width: 2em;
     aspect-ratio: 1/1;
     border-radius: 8em;
 
-    filter: invert();
+    color: var(--pitch-black);
+    background-repeat: no-repeat;
 }
 
 .counter-user {
-    font-size: 2.3em;
+    font-size: 3em;
+    line-height: 90%;
 }
 
 .counter-number {
     font-size: 7em;
-    transition: ease-in 100ms
+    transition: ease-in 100ms;
+}
+
+.counter-pic {
+    width: 7em;
+    aspect-ratio: 1 / 1;
+}
+
+.searcbar-container {
+    width: 30%;
 }
