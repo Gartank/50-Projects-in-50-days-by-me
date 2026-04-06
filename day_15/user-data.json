@@ -1,0 +1,25 @@
+{
+  "socialMediaAccounts": [
+    {
+      "platformName": "tiktok",
+      "username": "user",
+      "followerCount": 12533,
+      "logo": "../assets/tiktok-logo.svg",
+      "userPic" : "../assets/user_male_circle.svg"
+    },
+    {
+      "platformName": "instagram",
+      "username": "user",
+      "followerCount": 18700,
+      "logo": "../assets/instagram-logo.svg",
+      "userPic" : "../assets/user_male_circle.svg"
+    },
+    {
+      "platformName": "x",
+      "username": "user",
+      "followerCount": 9200,
+      "logo": "../assets/x-logo.svg",
+      "userPic" : "../assets/user_male_circle.svg"
+    }
+  ]
+}

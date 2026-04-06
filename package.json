@@ -1,0 +1,20 @@
+{
+  "name": "50-projects-in-50-days-by-me",
+  "version": "1.0.0",
+  "description": "these are the solutions mades by me for a challenge \"50 projects in 50 days\", a bunch of projects for practice and learning new aplications of the knowledge that I have for now",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gartank/50-Projects-in-50-days-by-me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gartank/50-Projects-in-50-days-by-me/issues"
+  },
+  "homepage": "https://github.com/Gartank/50-Projects-in-50-days-by-me#readme"
+}
