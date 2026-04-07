@@ -85,18 +85,12 @@ class Counter {
         logoElem.classList.add('counter-logo');
         logoElem.src = `${logoUrl}`
 
-        const title = document.createElement('h2');
-        title.classList.add('counter-user');
-        title.innerText = `@${this.userName}`;
-
-        titleContainer.append(logoElem, title);
-
         const userPic = document.createElement('img');
         userPic.classList.add('counter-pic');
         userPic.src = `${this.userPic}`;
 
         const searchBar = document.createElement('input');
-        searchBar.className = ('searchBar searchBar-input');
+        searchBar.className = ('searchBar searchBar-input_user');
         searchBar.type = 'text';
         searchBar.placeholder = 'Username';
 
@@ -104,10 +98,12 @@ class Counter {
         searchBarBtn.className = 'searchBar searchBar-btn';
         searchBarBtn.innerText = '>';
 
-        const searchBarContainer = document.createElement('span')
+        const searchBarContainer = document.createElement('div')
         searchBarContainer.className = 'searchBar searchBar-container';
         searchBarContainer.appendChild(searchBar);
         searchBarContainer.appendChild(searchBarBtn);
+
+        titleContainer.append(logoElem, searchBarContainer);
 
         const number = document.createElement('div');
         number.classList.add('counter-number');
@@ -116,16 +112,18 @@ class Counter {
         elem.appendChild(userPic);
         elem.appendChild(number);
         elem.appendChild(titleContainer);
-        elem.appendChild(searchBarContainer);
 
-        counterArray.forEach(counter => {
-            const searchBarbtn = counter.querySelector('.searchBar-btn');
-            const searchBarcontent = counter.querySelector('searchBar-input');
+        searchBarBtn.addEventListener( "click", ( event ) => {
+            undefinded
+        } )
+        searchBar.addEventListener( 'click', ( event ) => {
+            if(active != searchBarContainer && active != null){
+                active.classList.remove('searchBar-container--active');
+            }
+            searchBarContainer.classList.add('searchBar-container--active');
 
-            searchBarbtn.addEventListener('click', ev => {
-            console.log('yeah, it works');
-            })
-        });
+            active = searchBarContainer;
+        } )
 
         return elem;
     }
@@ -140,10 +138,10 @@ class Counter {
         this.followers = userData['followerCount'];
         this.userPic = userData["userPic"];
 
-        this.elem.querySelector(".counter-user").innerText = this.userName;
         this.elem.querySelector(".counter-number").innerText = this.followers;
         this.elem.querySelector(".counter-pic").src = this.userPic;
         this.elem.querySelector(".counter-logo").src = `${this.logo}`;
+        this.startCounter();
     }
 }
 
@@ -196,9 +194,6 @@ function initCounter( ){
     counterArray.push(igCounter, tiktokCounter, XCounter);
     counterArray.forEach( counter => countersContainer.append(counter.elem) );
 }
-
-
-
 
 initCounter();
 refreshCounters()

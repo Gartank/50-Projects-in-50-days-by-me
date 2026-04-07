@@ -15,6 +15,10 @@
     overflow: hidden;
 }
 
+input, button{
+    all: unset;
+}
+
 html {
     width: 100vw;
     min-height: 100vh;
@@ -23,7 +27,6 @@ html {
 
     font-size: 8px;
     font-family: 'Michroma', 'Audiowide', 'Unica One', 'Quantico', sans-serif;
-    
 }
 
 body {
@@ -31,6 +34,7 @@ body {
     min-height: 100%;
     max-height: fit-content;
     background-color: var(--neon-chartreuse);
+    background-image: radial-gradient(circle at 12px 2px, rgba(0, 0, 0 ,0.05) 1px, transparent 0);
 }
 
 main {
@@ -43,6 +47,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
 }
 
 section.counters{
@@ -56,11 +62,13 @@ section.counters{
 }
 
 .counter {
-    min-width: 3em;
+    min-width: 5em;
     max-width: max-content;
     height: fit-content;
+    padding: 2em 5em;
 
     color: var(--pitch-black);
+    background-color: var(--parchment);
 
     display: flex;
     flex-direction: column;
@@ -69,9 +77,10 @@ section.counters{
 }
 
 .counter-title{
-    width: 60%;
-    height: 3em;
+    width: 25em;
+    height: 5em;
     padding-inline-start: 1.5em;
+    overflow: visible;
 
     font-family: 'Quantico';
     font-size: 1em;
@@ -79,11 +88,16 @@ section.counters{
     display: flex;
     gap: 0.2em;
     justify-content: start;
+    align-items: center;
     align-self: flex-start;
+
+    &  > *{
+        height: 70%;
+    }
 }
 
 .counter-logo {
-    width: 2em;
+    width: 5em;
     aspect-ratio: 1/1;
     border-radius: 8em;
 
@@ -91,13 +105,8 @@ section.counters{
     background-repeat: no-repeat;
 }
 
-.counter-user {
-    font-size: 3em;
-    line-height: 90%;
-}
-
 .counter-number {
-    font-size: 7em;
+    font-size: 6em;
     transition: ease-in 100ms;
 }
 
@@ -106,6 +115,49 @@ section.counters{
     aspect-ratio: 1 / 1;
 }
 
-.searcbar-container {
-    width: 30%;
+.searchBar {
+    border-radius: 8px;
+}
+
+.searchBar-container {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em 0.7em;
+    display: flex;
+    overflow: visible;
+
+    align-items: center;
+
+    border: 2px solid black;
+}
+
+:is(.searchBar-input_user, .searchBar-btn) {
+    font-size: 2em;
+    height: 70%;
+}
+
+.searchBar-input_user {
+    height: 70%;
+    width: 80%;
+    padding-inline-end: 30%;
+}
+
+.searchBar-input_user::placeholder {
+    color: var(--pitch-black);
+}
+
+.searchBar-container--active {
+    border-color: var(--chocolate)
+}
+
+.searchBar-btn {
+    width: 20%;
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    border-color: transparent;
+
+    font-family: 'Audiowide';
+    font-size: 3em;
+    line-height: 90%;
+    text-align: center;
 }
