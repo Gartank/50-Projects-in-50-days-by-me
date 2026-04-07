@@ -23,31 +23,83 @@ const xUser = {
 const countersContainer = document.querySelector( '.counters' );
 const counterArray = [];
 const dataDir = './user-data.json';
+const searchHistory = {
+    limit : 100,
+    history : [],
+    directory : new Map(),
+    data : [],
+    addSearch(profileData, username) {
+        if( this.history.length >= this.limit ){
+            this.history.shift();
+        }
 
+        this.history.push( profileData );
+        this.directory.set(username, this.history.length - 1);
+    },
+    query(username) {
+        const index = this.directory.get(username);
+        return (index != undefined) ? this.history[index] : null;
+    }
+};
+let active = null;
+
+async function fetchUserInstagram( username ){
+    const userUrl = instagramUser.url(username);
+
+    const historyRequest = searchHistory.query(username);
+    if( historyRequest != null ){
+        refreshDataUsers('instagram', historyRequest);
+        return;
+    }
+
+    try {
+        const response = await fetch(userUrl, instagramUser.options);
+        const result = await response.json();
+
+        const profileData = {
+            'followerCount' : result.followers,
+            'username' : result.username,
+            'userPic' : result.profile_pic_url
+        };
+
+        refreshDataUsers( 'instagram', profileData );
+        searchHistory.addSearch( profileData, username );
+    }
+    catch (error){
+        console.error(error);
+    }
+}
+
+async function fetchUserTiktok(  ){
+    undefined;
+}
+
+async function fetchUserX(  ){
+    undefined;
+}
 
 class Counter {
-
     constructor( platform ){
         this.platform = platform;
         if(platform == 'instagram'){
-            this.platformApi =  instagramUser;
+            this.platformApi =  fetchUserInstagram;
         }
         else if (platform == 'tiktok'){
-            this.platformApi =  tiktokUser;
+            this.platformApi =  fetchUserTiktok;
         }
         else if (platform == 'x'){
-            this.platformApi = xUser;
+            this.platformApi = fetchUserX;
         }
         this.logo = `../assets/${platform}-logo.svg`;
         this.userName = 'user';
         this.followers = '676767';
         this.userPic = '../assets/user_male_circle.svg';
 
-        this.elem = Counter.initElem( this.logo );
+        this.elem = Counter.initElem( platform, this.logo, this.userPic );
 
         this.refreshElem();
     }
-    delete(){
+    remove(){
         this.elem.remove();
         delete this;
     }
@@ -74,7 +126,7 @@ class Counter {
         }
     }
 
-    static initElem( logoUrl ){
+    static initElem( platform, logoUrl, defaultPic ){
         const elem = document.createElement('div');
         elem.classList.add('counter')
 
@@ -87,7 +139,7 @@ class Counter {
 
         const userPic = document.createElement('img');
         userPic.classList.add('counter-pic');
-        userPic.src = `${this.userPic}`;
+        userPic.src = defaultPic;
 
         const searchBar = document.createElement('input');
         searchBar.className = ('searchBar searchBar-input_user');
@@ -113,9 +165,21 @@ class Counter {
         elem.appendChild(number);
         elem.appendChild(titleContainer);
 
-        searchBarBtn.addEventListener( "click", ( event ) => {
-            undefinded
-        } )
+        searchBarBtn.addEventListener( "click", () => {
+            if( searchBar.value == "" ) {
+                return;
+            }
+
+            if(platform == 'instagram'){
+                fetchUserInstagram( searchBar.value );
+            }
+            else if (platform == 'tiktok'){
+                fetchUserTiktok( searchBar.value );
+            }
+            else if (platform == 'x'){
+                fetchUserX( searchBar.value );
+            }
+        }, );
         searchBar.addEventListener( 'click', ( event ) => {
             if(active != searchBarContainer && active != null){
                 active.classList.remove('searchBar-container--active');
@@ -160,30 +224,6 @@ async function refreshDataUsers ( platform, object ) {
     const userData = Object.entries(data).filter( ([key, value]) => key == 'platfotmName' && value == platform )
 
     Object.keys(object).forEach( key => userData[key] = object[key] );
-}
-
-async function fetchUserInstagram( username ){
-    const userUrl = instagramUser.url(username);
-
-    try {
-        const response = await fetch(userUrl, instagramUser.options);
-        const result = await response.json();
-
-        const profileData = {
-            'followerCount' : result.followers,
-            'username' : result.username,
-            'userPic' : result.profile_pic_url
-        };
-
-        refreshDataUsers('instagram', profileData);
-    }
-    catch (error){
-        console.error(error);
-    }
-}
-
-async function fetchUserTiktok(  ){
-    undefined;
 }
 
 function initCounter( ){
