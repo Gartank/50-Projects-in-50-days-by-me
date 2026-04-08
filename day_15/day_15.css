@@ -4,7 +4,7 @@
     --neon-chartreuse: #eeff00ff;
     --chocolate: #d96c06ff;
     --pitch-black: #0f0a0aff;
-    --parchment: #f5efedff;
+    --electreic-aqua: #6BF3FF;
 }
 
 * {
@@ -47,8 +47,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    
 }
 
 section.counters{
@@ -128,7 +126,7 @@ section.counters{
 
     align-items: center;
 
-    border: 2px solid black;
+    border: 2px solid transparent;
 }
 
 :is(.searchBar-input_user, .searchBar-btn) {
@@ -147,7 +145,7 @@ section.counters{
 }
 
 .searchBar-container--active {
-    border-color: var(--chocolate)
+    border-color: var(--pitch-black)
 }
 
 .searchBar-btn {
