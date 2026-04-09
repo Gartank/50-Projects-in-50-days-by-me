@@ -111,6 +111,8 @@ section.counters{
 .counter-pic {
     width: 7em;
     aspect-ratio: 1 / 1;
+
+    border-radius: 100%;
 }
 
 .searchBar {
