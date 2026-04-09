@@ -31,6 +31,7 @@ export function deployElem( counter, countersContainer ){
 
 export function startCounter( counter, actualValue = 0){
     const counterNumber = counter.elem.querySelector('.counter-number');
+    counterNumber.innerText = 0;
     if( actualValue < counter.followers ){
         actualValue += Math.ceil(counter.followers / 500);
         counterNumber.innerText = actualValue;
@@ -61,6 +62,7 @@ export function initElem ( counter )  {
 
     const userPic = document.createElement('img');
     userPic.classList.add('counter-pic');
+    userPic.referrerPolicy = "no-referrer";
     userPic.src = counter.userPic;
 
     const searchBar = document.createElement('input');
@@ -81,7 +83,6 @@ export function initElem ( counter )  {
 
     const number = document.createElement('div');
     number.classList.add('counter-number');
-    number.innerText = 0;
 
     elem.appendChild(userPic);
     elem.appendChild(number);
@@ -94,16 +95,18 @@ export function initElem ( counter )  {
 
         const userData = await counter.platformApi.fetchUser( searchBar.value );
 
-        counter.userName = userData.username;
-        counter.followers = userData.followerCount;
-        counter.userPic = userData.userPic;
+        try {
+            counter.userName = userData.username;
+            counter.followers = userData.followerCount;
+            counter.userPic = userData.userPic;
 
-        console.info(userData)
+            userPic.src = `https://images.weserv.nl/?url=${encodeURIComponent(counter.userPic)}`;
 
-        number.innerText = counter.followers;
-        userPic.src = counter.userPic;
-
-        startCounter(counter);
+            startCounter(counter);
+        }
+        catch (err) {
+            console.error(err);
+        }
     } );
     searchBar.addEventListener( 'focus', () => {
         searchBarContainer.classList.add('searchBar-container--active');
