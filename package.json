@@ -6,6 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^8.0.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gartank/50-Projects-in-50-days-by-me.git"
