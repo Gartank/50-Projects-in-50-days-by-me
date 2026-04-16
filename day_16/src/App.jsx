@@ -4,7 +4,6 @@ import Sidebar from './components/sidebar.jsx';
 import Searchbar from './components/searchbar.jsx';
 import Catalog from './components/catalog.jsx';
 
-
 import './App.css'
 
 const Header = () => {
