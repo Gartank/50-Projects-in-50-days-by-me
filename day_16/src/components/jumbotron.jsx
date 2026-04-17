@@ -1,6 +1,5 @@
 
 
-
 function Jumbotron () {
     return (
         <section className="jumbotron">
