@@ -18,4 +18,4 @@ these are the solutions mades by me for a challenge "50 projects in 50 days", a 
 | Day 12 | [Live Preview](https://gartank.github.io/50-Projects-in-50-days-by-me/day_12/day_12.html) |
 | Day 14 | [Live Preview](https://gartank.github.io/50-Projects-in-50-days-by-me/day_14/day_14.html) |
 | Day 15 | [Live Preview](https://gartank.github.io/50-Projects-in-50-days-by-me/day_15/day_15.html) |
-| Day 16 | [Live Preview](https://gartank.github.io/50-Projects-in-50-days-by-me/day_16/day_16.html) |
+| Day 16 | in progress |
