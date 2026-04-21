@@ -38,7 +38,7 @@ body{
     justify-content: space-between;
     align-items: center;
 
-    background-image: url('/assets/1440-900-1296621.png');
+    background-image: url('../assets/1440-900-1296621.png');
     background-size: cover;
     -webkit-backdrop-filter: grayscale(0.8);
     backdrop-filter: grayscale(0.8);
