@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/Gartank/50-Projects-in-50-days-by-me/issues"
   },
-  "homepage": "https://github.com/Gartank/50-Projects-in-50-days-by-me#readme"
+  "homepage": "https://github.com/Gartank/50-Projects-in-50-days-by-me#readme",
+  "devDependencies": {
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.3"
+  }
 }
